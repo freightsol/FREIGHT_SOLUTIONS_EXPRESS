@@ -1,6 +1,6 @@
 {
   "buildCommand": "python3 manage.py collectstatic --noinput",
-  "functions": { "api/wsgi.py": { "memory": 1024 } },
+  "functions": { "api/index.py": { "memory": 1024 } },
   "routes": [
     { "src": "/static/(.*)", "dest": "/staticfiles/$1" },
     { "src": "/(.*)", "dest": "/api/index.py" }
