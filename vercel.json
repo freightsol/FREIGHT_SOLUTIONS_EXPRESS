@@ -3,7 +3,7 @@
   "installCommand": "python3 -m pip install -r requirements.txt",
   "buildCommand": "python3 manage.py collectstatic --noinput",
   "functions": {
-    "api/wsgi.py": { "runtime": "python3.12" }
+    "api/wsgi.py": { "runtime": "@vercel/python" }
   },
   "routes": [
     { "src": "/static/(.*)", "dest": "/staticfiles/$1" },
