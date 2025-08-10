@@ -12,26 +12,40 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import os
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
+# Quick-start development settings - unsuitable for ßproduction
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-ger8hpd1(qd@f(-$nqal%7&1fn!@c)sweos+fyuj_)k=v0@rip"
+SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "yes")
 
-ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['freight-solutions-express-production.up.railway.app','127.0.0.1']
-CSRF_TRUSTED_ORIGINS = ['https://freight-solutions-express-production.up.railway.app']
 
-STATIC_URL = "static/"
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    ".vercel.app",
+    "freightsolutionsexpress.com.au",
+    "fs-express.com.au",
+    "freight-solutions-express-production.up.railway.app",
+    "127.0.0.1",
+    "localhost",
+]
+CSRF_TRUSTED_ORIGINS = [
+    "https://freightsolutionsexpress.com.au",
+    "https://fs-express.com.au",
+    "https://freight-solutions-express-production.up.railway.app",
+    "https://*.vercel.app",
+]
+
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles' 
 
 # Application definition
 
