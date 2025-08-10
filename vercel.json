@@ -1,8 +1,14 @@
 {
+  "version": 2,
+  "builds": [
+    { "src": "api/wsgi.py",  "use": "@vercel/python@4.0.0" },
+    { "src": "api/hello.py", "use": "@vercel/python@4.0.0" }
+  ],
+  "installCommand": "python3 -m pip install -r requirements.txt",
   "buildCommand": "python3 manage.py collectstatic --noinput",
   "routes": [
-    { "src": "/static/(.*)", "dest": "staticfiles/$1" },
-    { "src": "/(.*)", "dest": "api/wsgi.py" }
+    { "src": "/static/(.*)", "dest": "/staticfiles/$1" },
+    { "src": "/api/hello",   "dest": "api/hello.py" },
+    { "src": "/(.*)",        "dest": "api/wsgi.py" }
   ]
 }
-
