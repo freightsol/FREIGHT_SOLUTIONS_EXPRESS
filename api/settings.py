@@ -25,7 +25,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "yes")
-
+DEBUG = True
 
 # ALLOWED_HOSTS = ['*']
 ALLOWED_HOSTS = [
@@ -70,7 +70,7 @@ MIDDLEWARE = [
     # "white noise.middleware.white noise middleware",
 ]
 
-ROOT_URLCONF = "freight_solutions.urls"
+ROOT_URLCONF = "api.urls"
 
 TEMPLATES = [
     {
@@ -88,7 +88,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "freight_solutions.wsgi.application"
+WSGI_APPLICATION = "api.wsgi.app"
 
 
 # Database
