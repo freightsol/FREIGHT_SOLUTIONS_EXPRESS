@@ -49,51 +49,51 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // 表单提交处理（改为 AJAX 方式）
-document.querySelector('.quote-form').addEventListener('submit', function (e) {
-    e.preventDefault(); // 继续阻止默认跳转
+// document.querySelector('.quote-form').addEventListener('submit', function (e) {
+//     e.preventDefault(); // 继续阻止默认跳转
 
-    // 获取表单数据
-    const formData = new FormData(this);
+//     // 获取表单数据
+//     const formData = new FormData(this);
 
-    // 发送 AJAX 请求到 Django 视图
-    // fetch(window.location.href, {  // 提交到当前页面的 URL（即 Django 的 index 视图）
-    //     method: 'POST',
-    //     body: formData,
-    //     headers: {
-    //         'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value  // 传递 CSRF Token
-    //     }
-    // })
-    //     .then(response => response.text())
-    //     .then(data => {
-    //         alert(data);  // 显示 Django 返回的响应（如 "Submission successful!"）
-    //         this.reset(); // 重置表单
-    //     })
-    //     .catch(error => {
-    //         console.error('提交失败:', error);
-    //         alert('Submission failed. Please try again.');
-    //     });
-
-
-    // 修改现有的fetch请求
-    fetch(window.location.href, {
-        method: 'POST',
-        body: formData,
-        headers: {
-            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
-        }
-    })
-        .then(response => response.text())
-        .then(data => {
-            handleFormResponse(data); // 处理服务器响应
-        })
-        .catch(error => {
-            console.error('提交失败:', error);
-            alert('Submission failed. Please try again.');
-        });
+// 发送 AJAX 请求到 Django 视图
+// fetch(window.location.href, {  // 提交到当前页面的 URL（即 Django 的 index 视图）
+//     method: 'POST',
+//     body: formData,
+//     headers: {
+//         'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value  // 传递 CSRF Token
+//     }
+// })
+//     .then(response => response.text())
+//     .then(data => {
+//         alert(data);  // 显示 Django 返回的响应（如 "Submission successful!"）
+//         this.reset(); // 重置表单
+//     })
+//     .catch(error => {
+//         console.error('提交失败:', error);
+//         alert('Submission failed. Please try again.');
+//     });
 
 
+// 修改现有的fetch请求
+//     fetch(window.location.href, {
+//         method: 'POST',
+//         body: formData,
+//         headers: {
+//             'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+//         }
+//     })
+//         .then(response => response.text())
+//         .then(data => {
+//             handleFormResponse(data); // 处理服务器响应
+//         })
+//         .catch(error => {
+//             console.error('提交失败:', error);
+//             alert('Submission failed. Please try again.');
+//         });
 
-});
+
+
+// });
 
 // 图片懒加载初始化（依赖lazysizes库）
 if ('lazysizes' in window) {
