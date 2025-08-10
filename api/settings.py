@@ -30,7 +30,9 @@ DEBUG = os.getenv("DEBUG", "False").lower() in ("true", "1", "yes")
 ALLOWED_HOSTS = [
     ".vercel.app",
     "freightsolutionsexpress.com.au",
+    "www.freightsolutionsexpress.com.au",
     "fs-express.com.au",
+    "www.fs-express.com.au",
     "freight-solutions-express-production.up.railway.app",
     "127.0.0.1",
     "localhost",
