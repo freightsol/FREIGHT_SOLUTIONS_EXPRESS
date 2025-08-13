@@ -116,7 +116,7 @@ def index(request):
                     subject,
                     message,
                     'freightsol.express@gmail.com',
-                    ['freightsol.express@gmail.com'],
+                    ['info@fs-express.com.au'],
                     fail_silently=False,
                 )
             #     return HttpResponse('<script>alert("Request submitted successfully! We\'ll contact you shortly."); window.history.back();</script>')
